@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
 
           badgeAnimation: badges.BadgeAnimation.fade(),
           badgeStyle: badges.BadgeStyle(
-            badgeColor: Colors.blue,
+            badgeColor: Colors.red,
             shape: badges.BadgeShape.circle,
           ),
           child: Icon(Icons.settings),
