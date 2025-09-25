@@ -1,6 +1,8 @@
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:readmore/readmore.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -11,6 +13,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
 
 
@@ -25,12 +28,13 @@ class HomeView extends StatelessWidget {
             badgeColor: Colors.red,
             shape: badges.BadgeShape.circle,
           ),
-          child: Icon(Icons.settings),
+          child: Icon(Icons.shopping_cart),
 
         ),
           SizedBox(
             width: 40,
           ),
+
         ],
       ),
       body:
@@ -40,35 +44,37 @@ class HomeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
-             badges.Badge(
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 30),
+             child: PinCodeTextField(
+                 appContext: context,
+                 length: 6,
+               keyboardType: TextInputType.number,
+               obscureText: true,
+               obscuringCharacter: 'x',
+               cursorColor: Colors.teal,
+               enabled: true,
 
-               badgeContent: Text('3'),
+               pinTheme: PinTheme(
+                 shape: PinCodeFieldShape.box,
 
-               badgeAnimation: badges.BadgeAnimation.fade(),
-                 badgeStyle: badges.BadgeStyle(
-                   badgeColor: Colors.blue,
-                   shape: badges.BadgeShape.circle,
-                 ),
-                 child: Icon(Icons.settings),
+                 borderRadius: BorderRadius.circular(10),
+                 fieldHeight: 50,
+                 fieldWidth: 40,
 
-                ),
-              SizedBox(
-                height: 50,
-              ),
-              badges.Badge(
+                 activeFillColor: Colors.teal,
+                 inactiveFillColor: Colors.grey,
 
-                badgeContent: Text('3'),
+                 selectedFillColor: Colors.red,
+                 inactiveColor: Colors.orange,
 
-                badgeAnimation: badges.BadgeAnimation.fade(),
-                badgeStyle: badges.BadgeStyle(
-                  badgeColor: Colors.blue,
-                  shape: badges.BadgeShape.circle,
-                ),
-                child: Icon(Icons.shopping_cart),
+                 selectedColor: Colors.blue,
+               ),
+             ),
+           )
 
-              ),
-            ],
-          ),
+
+        ]  ),
         ),
 
     );
@@ -109,4 +115,11 @@ class HomeView extends StatelessWidget {
 // ),
 // child: Icon(Icons.settings),
 //
+// ),
+
+// source code of animated Text kit packages
+// AnimatedTextKit(
+// animatedTexts: [
+// FadeAnimatedText('Master Code')
+// ]
 // ),
